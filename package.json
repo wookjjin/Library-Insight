@@ -10,8 +10,18 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@codemirror/view": "^6.24.1",
+    "codemirror": "^6.0.1",
     "nuxt": "^3.10.3",
+    "primevue": "^3.49.1",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "naive-ui": "^2.38.1",
+    "nuxt-primevue": "^0.3.1",
+    "unplugin-auto-import": "^0.17.5",
+    "unplugin-vue-components": "^0.26.0",
+    "vfonts": "^0.0.3"
   }
 }

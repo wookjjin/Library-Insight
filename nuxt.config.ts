@@ -8,13 +8,16 @@ export default defineNuxtConfig({
   alias: {
     '~': '/<srcDir>',
   },
-  modules: ['nuxt-primevue'],
+  modules: ['nuxt-primevue','@unocss/nuxt'],
   primevue: {
     // options
   },
   imports: {
     dirs: ['naive'],
   },
+  unocss: {
+    // options
+  }
   // css: ['primevue/resources/themes/aura-light-green/theme.css'],
   devtools: {enabled: true},
   vite: {

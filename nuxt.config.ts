@@ -1,6 +1,7 @@
-import AutoImport from 'unplugin-auto-import/vite';
-import Components from 'unplugin-vue-components/vite';
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+/* eslint-disable node/prefer-global/process */
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -17,7 +18,7 @@ export default defineNuxtConfig({
     // options
   },
   // css: ['primevue/resources/themes/aura-light-green/theme.css'],
-  devtools: {enabled: false},
+  devtools: { enabled: false },
   vite: {
     optimizeDeps: {
       include:

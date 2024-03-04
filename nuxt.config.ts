@@ -5,10 +5,8 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   telemetry: true,
-  alias: {
-    '~': '/<srcDir>',
-  },
-  modules: ['nuxt-primevue','@unocss/nuxt'],
+  modules: ['nuxt-primevue', '@unocss/nuxt'],
+  css: ['~/assets/styles/main.scss'],
   primevue: {
     // options
   },
@@ -17,9 +15,9 @@ export default defineNuxtConfig({
   },
   unocss: {
     // options
-  }
+  },
   // css: ['primevue/resources/themes/aura-light-green/theme.css'],
-  devtools: {enabled: true},
+  devtools: {enabled: false},
   vite: {
     optimizeDeps: {
       include:

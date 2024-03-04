@@ -14,12 +14,16 @@
     "codemirror": "^6.0.1",
     "nuxt": "^3.10.3",
     "primevue": "^3.49.1",
+    "sass": "^1.71.1",
     "vue": "^3.4.19",
+    "vue-quill-editor": "^3.0.6",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@unocss/nuxt": "^0.58.5",
     "naive-ui": "^2.38.1",
     "nuxt-primevue": "^0.3.1",
+    "tailwindscss": "^0.3.0",
     "unplugin-auto-import": "^0.17.5",
     "unplugin-vue-components": "^0.26.0",
     "vfonts": "^0.0.3"

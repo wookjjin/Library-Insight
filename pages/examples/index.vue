@@ -5,11 +5,12 @@ import CodeMirror from '../components/CodeMirror.vue'
 import { codeValue } from '../assets/codeVault'
 
 const code = ref<string>(`${codeValue}`)
+const codeDirectory = ref<string>('path/your/file/directory.vue')
 </script>
 
 <template>
   <div>
-    <CodeMirror :code="code" />
+    <CodeMirror :code="code" :path-title="codeDirectory" />
   </div>
 </template>
 

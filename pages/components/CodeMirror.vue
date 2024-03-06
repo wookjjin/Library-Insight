@@ -5,9 +5,13 @@ import { vue } from '@codemirror/lang-vue'
 import type { Extension } from '@codemirror/state'
 
 defineProps ({
+  pathTitle: {
+    type: String,
+    default: 'path/your/file/diretory.vue', // 파일 경로를 입력해주시면 됩니다.
+  },
   code: {
     type: String,
-    default: '//source area is empty',
+    default: '//source area is empty', // 코드는 assets/codeVault/example.js를 참고해서 작성한 뒤, index.js 파일 내에 선언해 상위 페이지에서 호출해서 props로 넘겨주는 구조로 구성되어있습니다.
   },
   placeholder: {
     type: String,
@@ -38,6 +42,9 @@ watch(isDark, (newValue) => {
       </div>
       <div>
         <client-only placeholder="Codemirror Loading...">
+          <h1 class="text-base">
+            {{ pathTitle }}
+          </h1>
           <Codemirror
             ref="editorRef" :model-value="code" :placeholder="placeholder" :extensions="extentions"
             :style="{ width: '650px', height: '700px' }"
@@ -74,6 +81,7 @@ watch(isDark, (newValue) => {
   border-radius: 999px;
   position: relative;
   cursor: pointer;
+  flex-direction: row;
 }
 
 .slider .circle {
@@ -139,5 +147,6 @@ watch(isDark, (newValue) => {
 
 .code-area {
   flex-direction: column;
+  padding: 10px
 }
 </style>

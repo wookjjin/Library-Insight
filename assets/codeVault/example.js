@@ -12,14 +12,9 @@ defineProps ({
   },
 })
 const editor = ref(null)
-<\/script>
+</script>
 
 <template>
-  <!-- <div>
-    <Codemirror
-      ref="editor"
-    />
-  </div> -->
   <client-only placeholder="Codemirror Loading...">
     <Codemirror ref="editor" :model-value="code" :placeholder="placeholder" />
   </client-only>

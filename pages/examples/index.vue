@@ -10,7 +10,7 @@ const codeDirectory = ref<string>('path/your/file/directory.vue')
 
 <template>
   <div>
-    <CodeMirror :code="code" :path-title="codeDirectory" />
+    <CodeMirror :code="code" :path-title="codeDirectory" width="650px" />
   </div>
 </template>
 

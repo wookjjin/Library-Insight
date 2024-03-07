@@ -17,10 +17,18 @@ defineProps ({
     type: String,
     default: 'Input your example code in here',
   },
+  width: {
+    type: String,
+    default: '650px',
+  },
+  height: {
+    type: String, // 높이는 defalut 값없이 상위 페이지에서 props값을 안주면, 코드 길이에 맞춰 높이설정이 되고 값을 주면 해당 높이에 맞게 값이 변경됩니다.
+  },
 })
 const isDark = ref<boolean>(false)
 const editorRef = ref<null | HTMLElement>(null)
 const extentions = ref<Extension[]>([vue()])
+
 watch(isDark, (newValue) => {
   if (newValue)
     extentions.value = [vue(), oneDark]
@@ -47,7 +55,7 @@ watch(isDark, (newValue) => {
           </h1>
           <Codemirror
             ref="editorRef" :model-value="code" :placeholder="placeholder" :extensions="extentions"
-            :style="{ width: '650px', height: '700px' }"
+            :style="{ width, height }"
           />
         </client-only>
       </div>

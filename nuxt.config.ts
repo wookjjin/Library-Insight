@@ -7,7 +7,7 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 export default defineNuxtConfig({
   telemetry: true,
   modules: ['@unocss/nuxt', 'nuxt3-leaflet'],
-  css: ['~/assets/styles/global.css'],
+  css: ['~/assets/styles/global.css', 'vue-final-modal/style.css'],
   imports: {
     dirs: ['naive'],
   },

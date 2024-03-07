@@ -17,6 +17,9 @@ dependencies:
   '@codemirror/view':
     specifier: ^6.24.1
     version: 6.24.1
+  '@css-render/vue3-ssr':
+    specifier: ^0.15.12
+    version: 0.15.12(vue@3.4.21)
   '@toast-ui/chart':
     specifier: ^4.6.1
     version: 4.6.1
@@ -29,9 +32,6 @@ dependencies:
   nuxt:
     specifier: ^3.10.3
     version: 3.10.3(eslint@8.57.0)(sass@1.71.1)(typescript@5.3.3)(vite@5.1.4)
-  primevue:
-    specifier: ^3.49.1
-    version: 3.49.1(vue@3.4.21)
   sass:
     specifier: ^1.71.1
     version: 1.71.1
@@ -64,6 +64,9 @@ devDependencies:
   nuxt-primevue:
     specifier: ^0.3.1
     version: 0.3.1(vue@3.4.21)
+  nuxt3-leaflet:
+    specifier: ^1.0.12
+    version: 1.0.12(typescript@5.3.3)
   tailwindscss:
     specifier: ^0.3.0
     version: 0.3.0
@@ -669,7 +672,6 @@ packages:
       vue: ^3.0.11
     dependencies:
       vue: 3.4.21(typescript@5.3.3)
-    dev: true
 
   /@emotion/hash@0.8.0:
     resolution: {integrity: sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==}
@@ -2166,6 +2168,10 @@ packages:
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
 
+  /@types/geojson@7946.0.14:
+    resolution: {integrity: sha512-WCfD5Ht3ZesJUsONdhvm84dmzWOiOzOAqOncN0++w0lBw1o8OuDNJF2McvvCef/yBqb/HYRahp1BYtODFQ8bRg==}
+    dev: true
+
   /@types/http-proxy@1.17.14:
     resolution: {integrity: sha512-SSrD0c1OQzlFX7pGu1eXxSEjemej64aaNPRhhVYUGqXh0BtldAAx37MG8btcumvpgKyZp1F5Gn3JkktdxiFv6w==}
     dependencies:
@@ -2178,6 +2184,12 @@ packages:
 
   /@types/katex@0.16.7:
     resolution: {integrity: sha512-HMwFiRujE5PjrgwHQ25+bsLJgowjGjm5Z8FVSf0N6PwgJrwxH0QxzHYDcKsTfV3wva0vzrpqMTJS2jXPr5BMEQ==}
+    dev: true
+
+  /@types/leaflet@1.9.8:
+    resolution: {integrity: sha512-EXdsL4EhoUtGm2GC2ZYtXn+Fzc6pluVgagvo2VC1RHWToLGlTRwVYoDpqS/7QXa01rmDyBjJk3Catpf60VMkwg==}
+    dependencies:
+      '@types/geojson': 7946.0.14
     dev: true
 
   /@types/lodash-es@4.17.12:
@@ -2759,6 +2771,22 @@ packages:
       vite: 5.1.4(sass@1.71.1)
       vue: 3.4.21(typescript@5.3.3)
     dev: false
+
+  /@vue-leaflet/vue-leaflet@0.10.1(@types/leaflet@1.9.8)(leaflet@1.9.4)(typescript@5.3.3):
+    resolution: {integrity: sha512-RNEDk8TbnwrJl8ujdbKgZRFygLCxd0aBcWLQ05q/pGv4+d0jamE3KXQgQBqGAteE1mbQsk3xoNcqqUgaIGfWVg==}
+    peerDependencies:
+      '@types/leaflet': ^1.5.7
+      leaflet: ^1.6.0
+    peerDependenciesMeta:
+      '@types/leaflet':
+        optional: true
+    dependencies:
+      '@types/leaflet': 1.9.8
+      leaflet: 1.9.4
+      vue: 3.4.21(typescript@5.3.3)
+    transitivePeerDependencies:
+      - typescript
+    dev: true
 
   /@vue-macros/common@1.10.1(vue@3.4.21):
     resolution: {integrity: sha512-uftSpfwdwitcQT2lM8aVxcfe5rKQBzC9jMrtJM5sG4hEuFyfIvnJihpPpnaWxY+X4p64k+YYXtBFv+1O5Bq3dg==}
@@ -5611,6 +5639,10 @@ packages:
       readable-stream: 2.3.8
     dev: false
 
+  /leaflet@1.9.4:
+    resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
+    dev: true
+
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -6340,6 +6372,19 @@ packages:
       - rollup
       - supports-color
       - vue
+    dev: true
+
+  /nuxt3-leaflet@1.0.12(typescript@5.3.3):
+    resolution: {integrity: sha512-nxG5rqosoX6p+xs/IqB0tGyawcte6FGWUUI/H2ZSVrGCQ7oN6GIj8DvQEb16sFXRlJeUDQfP0v4nLBCcqF58NQ==}
+    dependencies:
+      '@nuxt/kit': 3.10.3
+      '@types/leaflet': 1.9.8
+      '@vue-leaflet/vue-leaflet': 0.10.1(@types/leaflet@1.9.8)(leaflet@1.9.4)(typescript@5.3.3)
+      leaflet: 1.9.4
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+      - typescript
     dev: true
 
   /nuxt@3.10.3(eslint@8.57.0)(sass@1.71.1)(typescript@5.3.3)(vite@5.1.4):
@@ -7084,6 +7129,7 @@ packages:
       vue: ^3.0.0
     dependencies:
       vue: 3.4.21(typescript@5.3.3)
+    dev: true
 
   /proc-log@3.0.0:
     resolution: {integrity: sha512-++Vn7NS4Xf9NacaU9Xq3URUuqZETPsf8L4j5/ckhaRYsfPeRyzGw+iDjFhV/Jr3uNmTvvddEJFWh5R1gRgUH8A==}

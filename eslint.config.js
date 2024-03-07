@@ -17,6 +17,7 @@ export default antfu(
     // Without `files`, they are general rules for all files
     rules: {
       'style/semi': ['error', 'never'],
+      'no-console': 'off',
     },
   },
 )

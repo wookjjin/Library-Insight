@@ -1,10 +1,9 @@
 <script setup lang="ts">
-const router = useRouter()
 const textInput = ref('')
 const numberInput = ref(0)
 const errMessage = ref('')
 
-const countUp = () => {
+function countUp() {
   return numberInput.value += 1
 }
 </script>
@@ -13,9 +12,9 @@ const countUp = () => {
   <div class="wrapper">
     <span class="title">Main 🐣</span>
     <div class="form">
-      <input v-model="textInput" type="text" placeholder="Text Input" />
-      <input v-model="numberInput" type="text" placeholder="Number Input" />
-      <input type="button" value="Count" @click="countUp" />
+      <input v-model="textInput" type="text" placeholder="Text Input">
+      <input v-model="numberInput" type="text" placeholder="Number Input">
+      <input type="button" value="Count" @click="countUp">
     </div>
     <span class="error">{{ errMessage }}</span>
     <!-- <span class="help">이미 계정이 있으신가요?

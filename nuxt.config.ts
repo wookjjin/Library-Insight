@@ -6,36 +6,35 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   telemetry: true,
-  modules: ['nuxt-primevue', '@unocss/nuxt'],
-  css: ['~/assets/styles/main.scss'],
-  primevue: {
-    // options
-  },
+  modules: ['@unocss/nuxt', 'nuxt3-leaflet'],
+  css: ['~/assets/styles/global.css'],
   imports: {
     dirs: ['naive'],
   },
   unocss: {
     // options
   },
-  // css: ['primevue/resources/themes/aura-light-green/theme.css'],
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        types: ['naive-ui/volar'],
+      },
+    },
+  },
   devtools: { enabled: false },
+  build: {
+    transpile:
+      process.env.NODE_ENV === 'production' ? ['naive-ui', 'vueuc', '@css-render/vue3-ssr', 'juggle/resize-observer'] : ['@juggle/resize-observer'],
+  },
   vite: {
     optimizeDeps: {
-      include:
-        process.env.NODE_ENV === 'development'
-          ? ['naive-ui', 'vueuc', 'date-fns-tz/esm/formatInTimeZone']
-          : [],
+      include: process.env.NODE_ENV === 'development' ? ['naive-ui', 'vueuc', 'date-fns-tz/esm/formatInTimeZone'] : [],
     },
     plugins: [
       AutoImport({
         imports: [
           {
-            'naive-ui': [
-              'useDialog',
-              'useMessage',
-              'useNotification',
-              'useLoadingBar',
-            ],
+            'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
           },
         ],
       }),

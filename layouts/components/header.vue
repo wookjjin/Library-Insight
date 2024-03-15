@@ -3,11 +3,16 @@ const router = useRouter()
 </script>
 
 <template>
-  <header class="flex p-4 top-0 bg-dark-700 relative">
+  <header class="flex p-4 top-0 bg-dark-600 relative items-center">
     <button class="button" data-text="Awesome" @click="() => router.push('/')">
       <span class="actual-text">&nbsp;LIBRARY&nbsp;</span>
       <span aria-hidden="true" class="hover-text">&nbsp;LIBRARY&nbsp;</span>
     </button>
+    <nav>
+      <div class="relative">
+        <a>INSIGHT</a>
+      </div>
+    </nav>
   </header>
 </template>
 

@@ -25,7 +25,7 @@
   --blue-grey-2: #bbbec9be;
   --secondary-grey-dark: #292929;
   --secondary-grey-light: #dcdcdc;
-  --maindark: #171717;
+  --main: #2f3136;
   --dark: #212121;
   --darker: #111111;
   --semidark: #2c2c2c;
@@ -33,7 +33,7 @@
   --border-radius: 8px;
   --border-radius-large: 20px;
   --button-border-radius: 200px;
-  --toastify-text-color-light: var(--maindark);
+  --toastify-text-color-light: var(--main);
   --gradient: linear-gradient( 141deg, rgba(191, 102, 255, 1) 0%, rgba(98, 72, 255, 1) 50%, rgba(0, 221, 235, 1) 100% );
   --gradient-blue: linear-gradient(141deg, #188bfd, #0268ce);
   --gradient-blue-hover: linear-gradient(141deg, #0f7ce9, #0360bd);
@@ -62,7 +62,7 @@ body {
   --regular: 400;
   --semibold: 600;
   --bold: 700;
-  background: var(--maindark);
+  background: var(--main);
   -webkit-tap-highlight-color: transparent
 }
 
@@ -89,6 +89,13 @@ a {
 
 .main-container {
   min-height: 100vh;
-  background: var(--maindark);
+  background: var(--main);
   color: var(--offwhite)
 }
+
+.content-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+/* grid-template-columns: repeat(2, minmax(0, 1fr)) !important; */

@@ -4,9 +4,9 @@ import Header from '~/layouts/components/header.vue'
 
 <template>
   <Header />
+  <div class="content-wrap">
     <slot />
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

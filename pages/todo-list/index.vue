@@ -65,7 +65,7 @@ function doneAllTodos() {
       </div>
     </div>
     <div>
-      <div>
+      <div class="btn__group">
         <button @click="checkAllTodos">
           전체
         </button>
@@ -112,6 +112,13 @@ li {
 
 .title {
   margin: 5em;
+  text-align: center;
+}
+
+.btn__group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Input container */

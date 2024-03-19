@@ -1,54 +1,69 @@
 <script setup lang="ts">
+import path from 'path';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
 interface ITodoData {
-  id: number
-  text: string
+  id?: number
+  text?: string
   checked: boolean
-  done: boolean
+  done: boolean  
 }
 
 // ---------------------------------- Variables ----------------------------------
-const todoText = ref('')
-const todoList = ref<ITodoData[]>([])
-
-// const newTodo = ref('')
-// const todos = ref<ITodo[]>([])
-// const completedTodoList = reactive<ITodo[]>([])
-function getUniqueId(length = 16): string {
-  return Math.ceil(Math.random() * Date.now()).toPrecision(length).toString().replace('.', '')
-}
+const todoText = ref<string>('')
+const todoList = ref<ITodoData[]>([
+  { "id": "1618426158619000", "text": "점심 정하기", "checked": true, "done": true },
+  { "id": "1649483468660000", "text": "커피사기", "checked": true, "done": false },
+  { "id": "6460047601480000", "text": "방울토마토 사기", "checked": false, "done": false },
+  { "id": "1111213123131311", "text": "끝내주게 숨쉬기", "checked": false, "done": false }
+])
 
 // ---------------------------------- Functions ----------------------------------
-function addTodo() {
-  if (todoText.value) {
-    todoList.value.push({
-      id: getUniqueId(),
-      text: todoText.value,
-      checked: false,
-      done: false,
-    })
-  }
-  todoText.value = ''
+// 함수 선언 방법
+/*
+방법 1
+function banana(a,b){
+  return a + b
 }
+console.log(banana(3,6))
 
-function deleteTodo(id) {
-  todoList.value = todoList.value.filter(todo => todo.id !== id)
+방법 2 + 타입 추가 
+const tomato = (a:number,b:number) => {
+  return a + b
 }
+console.log(tomato(3,6))
 
-// // 전체 체크
-function checkAllTodos() {
-  const allCheck = todoList.value.every(todo => todo.checked)
+//   참고 페이지 입니다.
+페이지 이동 https://v3.router.vuejs.org/kr/guide/essentials/navigation.html  
 
-  todoList.value.forEach((todo) => {
-    todo.checked = !allCheck
-  })
-}
+백틱 사용법 https://codingeverybody.kr/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%85%9C%ED%94%8C%EB%A6%BF-%EB%A6%AC%ED%84%B0%EB%9F%B4%EB%A1%9C-%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%84-%EB%8B%A4%EB%A3%A8%EA%B8%B0
 
-function doneAllTodos() {
-  todoList.value.forEach((todo) => {
-    if (todo.checked)
-      todo.done = !todo.done
-  })
-}
+참고 페이지
+https://ko.vuejs.org
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+버튼 클릭 방법
+https://vuejs.org/guide/essentials/event-handling
+
+탬플릿 영역 반복문
+v-for
+https://ko.vuejs.org/guide/essentials/list
+
+v-model
+https://vuejs.org/guide/components/v-model.html
+
+사용 예시 
+https://play.vuejs.org/#eNqVVMtu00AU/ZWLN42VyA4pq+AEaNVFWVBUHhvMwplMUqf2jDUeh0iRdywisUbqoh/AL/BNhH/gzsMPkjTQjTVzn+fce8Zr51WWecuCOkMnkDTNkkjSccgAgmm81Ac83gzGH/KYzUHQWeDjzdonhZScwUuSxOR2FDoxI4KmlMlrOgud8WV1hQ4muoFv4qvsbHzOi8o5hPUaiLpjLpRl4GcY968+V5MFJXvdjFXX/cT1+fOB5jbqY5QU9O9YjcVcsLSnUdWQHpt9xnlCI7ZLqTXSiMh4Sf9zriZ4d7jGemzCNkKDyyUueY9W4JuNB35LB3jNiYgzCTmVRQZJxOYISOaIIGRxmnEhYa100auZQAkzwVM4QVmdPFc1fB9q/YSMcJbLZtcjZe30XYw0nnp21mV1MYR+D+w0hyAFzr1USSGbFQwb48Da+uu4sFa0qj7eUq2q28WM8nBSLaYqtVmizjUT0xX2fdWaR/DkAVfVuDUMu0zLW69Fczb2ToNfccf0h+naDAu8teCGsO683dxvN3e/v//AL2zvNttv91BvxM570HcPRLf6RtOp1v3TTjRkRTqhAnoTe3I1AIFiERjYnTSkf/38ulPQtK2qDWDUrveiKjga65IRdIGYidqaKh0n6yV83mkgDfq9076LDA65B4qcZqd0bpSNOnZ6qGiMn8Vzb5Fzhj9D3TN0CE+zOKHiKlPMUfX4gMzjCp0oSfiX19qm1IgLMnZyQ8ntAfsiXylb6LwVNKdCveLaJyMxp9K4L969oSs8186UT4sEo484rylyLRRGE3ZWsCnCbsVptJf6waL43ucXK0lZXpFSQFVkqeNDB5/u+RHqDdxT75nOw5045R9kwjWS
+*/
+
+/*
+추가, 삭제, 페이지 이동
+
+*/
 </script>
 
 <template>
@@ -56,38 +71,38 @@ function doneAllTodos() {
     <div class="title">
       <h1>To-Do List</h1>
       <div class="input-container">
-        <input v-model="todoText" type="text" placeholder="Enter ToDo" class="input-field" @keyup.enter="addTodo">
+        <!-- 엔터 눌렀을때 등록될수 있도록 기능 추가 하면 좋을것 같아요 -->
+        <input type="text" placeholder="Enter ToDo" class="input-field">
         <label for="input-field" class="input-label">Enter ToDo</label>
         <span class="input-highlight" />
-        <button type="button" class="add-button" @click="addTodo">
+        <button type="button" class="add-button">
           Add
         </button>
       </div>
     </div>
     <div>
       <div class="btn__group">
-        <button @click="checkAllTodos">
+        <button>
           전체
         </button>
-        <button @click="doneAllTodos">
+        <button>
           완료
         </button>
       </div>
       <div>
         <ul>
-          <li v-for="todo in todoList" :key="todo.id">
+          <li>
             <div class="todos-wrap">
               <label class="cyberpunk-checkbox-label">
-                <input v-model="todo.checked" type="checkbox" class="cyberpunk-checkbox">
-                <span :class="todo.done ? 'text-decoration-line: line-through' : ''">
-                  {{ todo.text }}
+                <input type="checkbox" class="cyberpunk-checkbox">
+                <span :class="false ? 'text-decoration-line: line-through' : ''">
+                  여기다 출력! 
                 </span>
               </label>
-              <button class="delete-button" @click="deleteTodo(todo.id)">
+              <button class="delete-button">
                 <svg viewBox="0 0 448 512" class="svgIcon">
                   <path
-                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
-                  />
+                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
                 </svg>
               </button>
             </div>
@@ -102,7 +117,8 @@ function doneAllTodos() {
 li {
   list-style: none;
 }
-.todo-container{
+
+.todo-container {
   display: flex;
   flex-direction: column;
   align-items: center;

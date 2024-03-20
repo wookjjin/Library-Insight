@@ -1,0 +1,15 @@
+{
+  "httpStatusCode": 200,
+  "code": "20000000",
+  "message": "정상 처리 되었습니다.",
+  "body": [
+    {
+      "value": "Y",
+      "label": "Y"
+    },
+    {
+      "value": "N",
+      "label": "N"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import type { Extension } from '@codemirror/state'
 defineProps ({
   pathTitle: {
     type: String,
-    default: 'path/your/file/directory.vue', // 파일이 여러개일 경우 구별을 위해 파일 경로를 입력해주시면 됩니다.
+    default: '', // 파일이 여러개일 경우 구별을 위해 파일 경로를 입력해주시면 됩니다.
   },
   code: {
     type: String,

@@ -1,2 +1,2 @@
 export * from './example'
-export * from './vueFinal'
+export * from './qrcode'

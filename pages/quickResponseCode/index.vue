@@ -43,10 +43,11 @@ const pathTitle = ref<string>('Path: ../quickResopnseCode/index.vue')
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: rgb(0 0 0);
+  background-color: rgb(255 255 255);
 }
 
 .result-area span {
   margin-top: 10px;
+  color: rgb(0 0 0)
 }
 </style>
